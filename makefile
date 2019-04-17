@@ -1,2 +1,2 @@
-all: 
-		gcc stdout.c -Wall -Werror -o stdout
+all:
+	gcc stdout.c -Wall -Werror -o stdout
