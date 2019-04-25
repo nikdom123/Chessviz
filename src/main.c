@@ -1,8 +1,9 @@
+#include "board.h"
+#include "board_print_plain.h"
 #include <stdio.h>
 
-void Board()
+int main()
 {
-    int i, j;
     char A[9][9] = {{'8', 'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'},
                     {'7', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'},
                     {'6', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
@@ -12,16 +13,8 @@ void Board()
                     {'2', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
                     {'1', 'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'},
                     {' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'}};
-    for (i = 0; i < 9; i++) // цикл по строкам
-    {
-        for (j = 0; j < 9; j++) // вывод одной строки (в цикле)
-            printf("%4c", A[i][j]); // 4 символа на число
-        printf("\n"); // переход на другую строку
-    }
-}
-
-int main()
-{
-    Board();
+    Print(A);
+    Move(A);
+    Print(A);
     return 0;
 }
