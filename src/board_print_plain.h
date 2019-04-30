@@ -2,6 +2,6 @@
 #define BOARD_PRINT_PLAIN_H
 #include <stdio.h>
 
-void Print(char A[9][9]);
+void Print(char A[8][8]);
 
 #endif
