@@ -16,13 +16,19 @@ void CheckMove(char A[8][8])
     int Brow1 = 56 - B[1];
     int Brow2 = 56 - B[4];
 
+    if ((Wrow1 - Wrow2 > 2) || (Brow1 - Brow2 > 2) || (Wcol1 != Wcol2)
+        || (Bcol1 != Bcol2)) {
+        printf("Error of step\n");
+        exit(1);
+    }
+
     if (Wcol1 < 8 && Wrow1 < 8 && Wcol2 < 8 && Wrow2 < 8 && Bcol1 < 8
         && Brow1 < 8 && Bcol2 < 8 && Brow2 < 8) {
         Move(A, Wcol1, Wrow1, Wcol2, Wrow2);
         Move(A, Bcol1, Brow1, Bcol2, Brow2);
         Print(A);
     } else {
-        printf("Error 404\n");
+        printf("Exit the board\n");
     }
 }
 

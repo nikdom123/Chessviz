@@ -13,6 +13,7 @@ int main()
                     {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
                     {'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
                     {'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'}};
+    printf("\t--BIG is white, SMALL is black--\t\n");
     Print(A);
     while (1) {
         CheckMove(A);
