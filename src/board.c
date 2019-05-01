@@ -16,8 +16,8 @@ void CheckMove(char A[8][8])
     int Brow1 = 56 - B[1];
     int Brow2 = 56 - B[4];
 
-    if ((Wrow1 - Wrow2 > 2) || (Brow1 - Brow2 > 2) || (Wcol1 != Wcol2)
-        || (Bcol1 != Bcol2)) {
+    if ((Wrow1 - Wrow2 > 2) || (Brow2 - Brow1 > 2) || (Wcol1 != Wcol2)
+        || (Bcol1 != Bcol2) || (Wrow2 >= Wrow1) || (Brow1 >= Brow2)) {
         printf("Error of step\n");
         exit(1);
     }

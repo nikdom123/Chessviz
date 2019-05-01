@@ -1,2 +1,4 @@
-*.main.c.swp
-*.o
+build/*
+bin/*
+*.swp
+*.txt
