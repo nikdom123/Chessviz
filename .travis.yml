@@ -1,6 +1,8 @@
 language: с
+
+compiler:
+  - gcc
+  
 script:
   - git ls-files src/ | xargs clang-format -i && git diff --exit-code 
   - make 
-compiler:
-  - gcc
