@@ -25,7 +25,7 @@ void CheckMove(char A[8][8])
     switch (W[0]) {
     case 'P':
         if (WPawn(Wrow1, Wcol1, Wrow2, Wcol2) && (A[Wrow1][Wcol1] == 'P')) {
-            Move(A, Wcol1, Wrow1, Wcol2, Wrow2);
+            Move(A, W[3], 'w', Wcol1, Wrow1, Wcol2, Wrow2);
         } else {
             printf("Error of step\n");
             exit(1);
@@ -33,7 +33,7 @@ void CheckMove(char A[8][8])
         break;
     case 'B':
         if (Bishop(A, Wrow1, Wcol1, Wrow2, Wcol2) && (A[Wrow1][Wcol1] == 'B')) {
-            Move(A, Wcol1, Wrow1, Wcol2, Wrow2);
+            Move(A, W[3], 'w', Wcol1, Wrow1, Wcol2, Wrow2);
         } else {
             printf("Error of step\n");
             exit(1);
@@ -41,7 +41,7 @@ void CheckMove(char A[8][8])
         break;
     case 'R':
         if (Rook(A, Wrow1, Wcol1, Wrow2, Wcol2) && (A[Wrow1][Wcol1] == 'R')) {
-            Move(A, Wcol1, Wrow1, Wcol2, Wrow2);
+            Move(A, W[3], 'w', Wcol1, Wrow1, Wcol2, Wrow2);
         } else {
             printf("Error of step\n");
             exit(1);
@@ -49,7 +49,7 @@ void CheckMove(char A[8][8])
         break;
     case 'N':
         if (Knight(A, Wrow1, Wcol1, Wrow2, Wcol2) && (A[Wrow1][Wcol1] == 'N')) {
-            Move(A, Wcol1, Wrow1, Wcol2, Wrow2);
+            Move(A, W[3], 'w', Wcol1, Wrow1, Wcol2, Wrow2);
         } else {
             printf("Error of step\n");
             exit(1);
@@ -57,7 +57,7 @@ void CheckMove(char A[8][8])
         break;
     case 'Q':
         if (Queen(A, Wrow1, Wcol1, Wrow2, Wcol2) && (A[Wrow1][Wcol1] == 'Q')) {
-            Move(A, Wcol1, Wrow1, Wcol2, Wrow2);
+            Move(A, W[3], 'w', Wcol1, Wrow1, Wcol2, Wrow2);
         } else {
             printf("Error of step\n");
             exit(1);
@@ -65,7 +65,7 @@ void CheckMove(char A[8][8])
         break;
     case 'K':
         if (King(A, Wrow1, Wcol1, Wrow2, Wcol2) && (A[Wrow1][Wcol1] == 'K')) {
-            Move(A, Wcol1, Wrow1, Wcol2, Wrow2);
+            Move(A, W[3], 'w', Wcol1, Wrow1, Wcol2, Wrow2);
         } else {
             printf("Error of step\n");
             exit(1);
@@ -77,7 +77,7 @@ void CheckMove(char A[8][8])
     switch (B[0]) {
     case 'P':
         if (BPawn(Brow1, Bcol1, Brow2, Bcol2) && (A[Brow1][Bcol1] == 'p')) {
-            Move(A, Bcol1, Brow1, Bcol2, Brow2);
+            Move(A, B[3], 'b', Bcol1, Brow1, Bcol2, Brow2);
         } else {
             printf("Error of step\n");
             exit(1);
@@ -85,7 +85,7 @@ void CheckMove(char A[8][8])
         break;
     case 'B':
         if (Bishop(A, Brow1, Bcol1, Brow2, Bcol2) && (A[Brow1][Bcol1] == 'b')) {
-            Move(A, Bcol1, Brow1, Bcol2, Brow2);
+            Move(A, B[3], 'b', Bcol1, Brow1, Bcol2, Brow2);
         } else {
             printf("Error of step\n");
             exit(1);
@@ -93,7 +93,7 @@ void CheckMove(char A[8][8])
         break;
     case 'R':
         if (Rook(A, Brow1, Bcol1, Brow2, Bcol2) && (A[Brow1][Bcol1] == 'r')) {
-            Move(A, Bcol1, Brow1, Bcol2, Brow2);
+            Move(A, B[3], 'b', Bcol1, Brow1, Bcol2, Brow2);
         } else {
             printf("Error of step\n");
             exit(1);
@@ -101,7 +101,7 @@ void CheckMove(char A[8][8])
         break;
     case 'N':
         if (Knight(A, Brow1, Bcol1, Brow2, Bcol2) && (A[Brow1][Bcol1] == 'n')) {
-            Move(A, Bcol1, Brow1, Bcol2, Brow2);
+            Move(A, B[3], 'b', Bcol1, Brow1, Bcol2, Brow2);
         } else {
             printf("Error of step\n");
             exit(1);
@@ -109,7 +109,7 @@ void CheckMove(char A[8][8])
         break;
     case 'Q':
         if (Queen(A, Brow1, Bcol1, Brow2, Bcol2) && (A[Brow1][Bcol1] == 'q')) {
-            Move(A, Bcol1, Brow1, Bcol2, Brow2);
+            Move(A, B[3], 'b', Bcol1, Brow1, Bcol2, Brow2);
         } else {
             printf("Error of step\n");
             exit(1);
@@ -117,7 +117,7 @@ void CheckMove(char A[8][8])
         break;
     case 'K':
         if (King(A, Brow1, Bcol1, Brow2, Bcol2) && (A[Brow1][Bcol1] == 'k')) {
-            Move(A, Bcol1, Brow1, Bcol2, Brow2);
+            Move(A, B[3], 'b', Bcol1, Brow1, Bcol2, Brow2);
         } else {
             printf("Error of step\n");
             exit(1);
@@ -266,8 +266,54 @@ int BPawn(int row1, int col1, int row2, int col2)
     return flag;
 }
 
-void Move(char A[8][8], int col1, int row1, int col2, int row2)
+void Move(
+        char A[8][8],
+        char step,
+        char color,
+        int col1,
+        int row1,
+        int col2,
+        int row2)
 {
-    A[row2][col2] = A[row1][col1];
-    A[row1][col1] = ' ';
+    int flag;
+    switch (color) {
+    case 'w':
+        if (A[row2][col2] == 'P' || A[row2][col2] == 'Q' || A[row2][col2] == 'K'
+            || A[row2][col2] == 'N' || A[row2][col2] == 'R'
+            || A[row2][col2] == 'B')
+            flag = 0;
+        else
+            flag = 1;
+        break;
+    case 'b':
+        if (A[row2][col2] == 'p' || A[row2][col2] == 'q' || A[row2][col2] == 'k'
+            || A[row2][col2] == 'n' || A[row2][col2] == 'r'
+            || A[row2][col2] == 'b')
+            flag = 0;
+        else
+            flag = 1;
+        break;
+    }
+    if (flag) {
+        switch (step) {
+        case '-':
+            if (A[row2][col2] != ' ') {
+                printf("Error busy\n");
+                exit(1);
+            }
+            A[row2][col2] = A[row1][col1];
+            A[row1][col1] = ' ';
+            break;
+        case 'x':
+            A[row2][col2] = A[row1][col1];
+            A[row1][col1] = ' ';
+            break;
+        default:
+            printf("Step is false\n");
+            exit(1);
+        }
+    } else {
+        printf("Step error\n");
+        exit(1);
+    }
 }
