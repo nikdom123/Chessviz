@@ -24,7 +24,8 @@ void CheckMove(char A[8][8])
     }
     switch (W[0]) {
     case 'P':
-        if (WPawn(Wrow1, Wcol1, Wrow2, Wcol2) && (A[Wrow1][Wcol1] == 'P')) {
+        if (WPawn(W[3], Wrow1, Wcol1, Wrow2, Wcol2)
+            && (A[Wrow1][Wcol1] == 'P')) {
             Move(A, W[3], 'w', Wcol1, Wrow1, Wcol2, Wrow2);
         } else {
             printf("Error of step\n");
@@ -76,7 +77,8 @@ void CheckMove(char A[8][8])
     }
     switch (B[0]) {
     case 'P':
-        if (BPawn(Brow1, Bcol1, Brow2, Bcol2) && (A[Brow1][Bcol1] == 'p')) {
+        if (BPawn(B[3], Brow1, Bcol1, Brow2, Bcol2)
+            && (A[Brow1][Bcol1] == 'p')) {
             Move(A, B[3], 'b', Bcol1, Brow1, Bcol2, Brow2);
         } else {
             printf("Error of step\n");
@@ -238,30 +240,49 @@ int Bishop(char A[8][8], int row1, int col1, int row2, int col2)
     return flag;
 }
 
-int WPawn(int row1, int col1, int row2, int col2)
+int WPawn(char step, int row1, int col1, int row2, int col2)
 {
     int flag;
-    if ((row1 - row2 <= 2) && (col1 == col2) && (row1 > row2)) {
-        flag = 1;
-    } else {
-        flag = 0;
+    if (step == '-') {
+        if ((row1 - row2 <= 2) && (col1 == col2) && (row1 > row2)) {
+            flag = 1;
+        } else {
+            flag = 0;
+        }
+        if ((row1 != 6) && (row1 - row2 == 2)) {
+            flag = 0;
+        }
     }
-    if ((row1 != 6) && (row1 - row2 == 2)) {
-        flag = 0;
+    if (step == 'x') {
+        printf("%c\n", step);
+        if ((row1 - row2 == 1) && (labs(col1 - col2) == 1)) {
+            flag = 1;
+        } else {
+            flag = 0;
+        }
     }
     return flag;
 }
 
-int BPawn(int row1, int col1, int row2, int col2)
+int BPawn(char step, int row1, int col1, int row2, int col2)
 {
     int flag;
-    if ((row2 - row1 <= 2) && (col1 == col2) && (row2 > row1)) {
-        flag = 1;
-    } else {
-        flag = 0;
+    if (step == '-') {
+        if ((row2 - row1 <= 2) && (col1 == col2) && (row2 > row1)) {
+            flag = 1;
+        } else {
+            flag = 0;
+        }
+        if ((row1 != 1) && (row2 - row1 == 2)) {
+            flag = 0;
+        }
     }
-    if ((row1 != 1) && (row2 - row1 == 2)) {
-        flag = 0;
+    if (step == 'x') {
+        if ((row2 - row1 == 1) && (labs(col1 - col2) == 1) && (row2 > row1)) {
+            flag = 1;
+        } else {
+            flag = 0;
+        }
     }
     return flag;
 }
@@ -297,16 +318,16 @@ void Move(
     if (flag) {
         switch (step) {
         case '-':
-            if (A[row2][col2] != ' ') {
+            if (A[row2][col2] != '.') {
                 printf("Error busy\n");
                 exit(1);
             }
             A[row2][col2] = A[row1][col1];
-            A[row1][col1] = ' ';
+            A[row1][col1] = '.';
             break;
         case 'x':
             A[row2][col2] = A[row1][col1];
-            A[row1][col1] = ' ';
+            A[row1][col1] = '.';
             break;
         default:
             printf("Step is false\n");

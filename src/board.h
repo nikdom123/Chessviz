@@ -4,8 +4,8 @@
 #include <stdlib.h>
 
 void CheckMove(char A[8][8]);
-int WPawn(int row1, int col1, int row2, int col2);
-int BPawn(int row1, int col1, int row2, int col2);
+int WPawn(char step, int row1, int col1, int row2, int col2);
+int BPawn(char step, int row1, int col1, int row2, int col2);
 int King(char A[8][8], int row1, int col1, int row2, int col2);
 int Queen(char A[8][8], int row1, int col1, int row2, int col2);
 int Rook(char A[8][8], int row1, int col1, int row2, int col2);
