@@ -1,6 +1,6 @@
-language: с++
+language: с
 compiler:
-  - g++
+  - gcc
 
 dist: xenial
 
