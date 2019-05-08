@@ -5,6 +5,8 @@ CFLAGS = -Werror -Wall
 
 all: bin/main
 
+test: bin/main-test
+
 -include build/*.d
 
 bin/main: build/main.o build/board.o build/board_read.o build/board_print_plain.o
