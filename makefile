@@ -30,13 +30,13 @@ bin/main-test: build-test/main.o build-test/board.o build-test/test.o build/boar
 	$(CC) $(CFLAGS) -o $@ $^
 
 build-test/main.o: test/main.c
-	$(CC) -I thirdparty -I src $(CFLAGS) -MMD -c -o $@ $<
+	$(CC) -I thirdparty -I src $(CFLAGS) -c -o $@ $<
 
 build-test/board.o: src/board.c
-	$(CC) -I thirdparty -I src $(CFLAGS) -MMD -c -o $@ $<
+	$(CC) -I thirdparty -I src $(CFLAGS) -c -o $@ $<
 
 build-test/test.o: test/test.c
-	$(CC) -I thirdparty -I src $(CFLAGS) -MMD -c -o $@ $<
+	$(CC) -I thirdparty -I src $(CFLAGS) -c -o $@ $<
 
 
 start: bin/main
@@ -44,3 +44,4 @@ start: bin/main
 
 clean:
 	rm build/*
+	rm build-test/*
