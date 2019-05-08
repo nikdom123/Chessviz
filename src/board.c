@@ -1,5 +1,6 @@
 #include "board.h"
 #include "board_print_plain.h"
+#include <stdio.h>
 
 void CheckMove(char A[8][8])
 {
@@ -181,22 +182,22 @@ int Rook(char A[8][8], int row1, int col1, int row2, int col2)
     }
     for (i = 1; i < j; i++) {
         if (row1 == row2 && col1 > col2) {
-            if (A[row1][--col1] != ' ') {
+            if (A[row1][--col1] != '.') {
                 flag = 0;
                 break;
             }
         } else if (row1 == row2 && col1 < col2) {
-            if (A[row1][++col1] != ' ') {
+            if (A[row1][++col1] != '.') {
                 flag = 0;
                 break;
             }
         } else if (col1 == col2 && row1 > row2) {
-            if (A[--row1][col1] != ' ') {
+            if (A[--row1][col1] != '.') {
                 flag = 0;
                 break;
             }
         } else if (col1 == col2 && row1 < row2) {
-            if (A[++row1][col1] != ' ') {
+            if (A[++row1][col1] != '.') {
                 flag = 0;
                 break;
             }
@@ -216,22 +217,22 @@ int Bishop(char A[8][8], int row1, int col1, int row2, int col2)
     }
     for (i = 1; i < j; i++) {
         if (row2 > row1 && col2 > col1) {
-            if (A[++row1][++col1] != ' ') {
+            if (A[++row1][++col1] != '.') {
                 flag = 0;
                 break;
             }
         } else if (row2 > row1 && col2 < col1) {
-            if (A[++row1][--col1] != ' ') {
+            if (A[++row1][--col1] != '.') {
                 flag = 0;
                 break;
             }
         } else if (row2 < row1 && col2 > col1) {
-            if (A[--row1][++col1] != ' ') {
+            if (A[--row1][++col1] != '.') {
                 flag = 0;
                 break;
             }
         } else if (row2 < row1 && col2 < col1) {
-            if (A[--row1][--col1] != ' ') {
+            if (A[--row1][--col1] != '.') {
                 flag = 0;
                 break;
             }
@@ -254,7 +255,6 @@ int WPawn(char step, int row1, int col1, int row2, int col2)
         }
     }
     if (step == 'x') {
-        printf("%c\n", step);
         if ((row1 - row2 == 1) && (labs(col1 - col2) == 1)) {
             flag = 1;
         } else {

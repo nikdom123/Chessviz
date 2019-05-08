@@ -1,4 +1,5 @@
 build/*
+build-test/*
 bin/*
 *.swp
 *.txt
