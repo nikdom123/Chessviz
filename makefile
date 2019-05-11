@@ -26,12 +26,9 @@ build/board_print_plain.o: src/board_print_plain.c
 
 -include build-test/*.d
 
-bin/main-test: build-test/board_print_plain.o build-test/board.o build-test/main.o build-test/test.o
+bin/main-test: build-test/board.o build-test/main.o build-test/test.o
 	$(CC) $(CFLAGS) -o $@ $^
 
-build-test/board_print_plain.o: src/board_print_plain.c
-	$(CC) -I thirdparty -I src $(CFLAGS) -MMD -c -o $@ $<
-	
 build-test/main.o: test/main.c
 	$(CC) -I thirdparty -I src $(CFLAGS) -MMD -c -o $@ $<
 
