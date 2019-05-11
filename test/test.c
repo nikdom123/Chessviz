@@ -1,5 +1,4 @@
 #include "board.h"
-#include "board_print_plain.h"
 #include "ctest.h"
 
 // White Pawn
