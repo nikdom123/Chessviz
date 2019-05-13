@@ -1,5 +1,5 @@
-build/*
-build-test/*
 bin/*
 *.swp
 *.txt
+*.o
+*.d
