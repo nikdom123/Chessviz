@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Werror -Wall
+CFLAGS = -std=gnu11 -Werror -Wall
 
 .PHONY: clean start all
 
@@ -26,17 +26,17 @@ build/board_print_plain.o: src/board_print_plain.c
 
 -include build-test/*.d
 
-bin/main-test: build-test/main.o build-test/board.o build-test/test.o build/board_print_plain.o
+bin/main-test: build-test/main.o build/board_print_plain.o build-test/board.o build-test/test.o
 	$(CC) $(CFLAGS) -o $@ $^
 
 build-test/main.o: test/main.c
-	$(CC) -I thirdparty -I src $(CFLAGS) -MP -MMD -c -o $@ $<
+	$(CC) -I thirdparty -I src $(CFLAGS) -MMD -c -o $@ $<
 
 build-test/board.o: src/board.c
-	$(CC) -I thirdparty -I src $(CFLAGS) -MP -MMD -c -o $@ $<
+	$(CC) -I thirdparty -I src $(CFLAGS) -MMD -c -o $@ $<
 
 build-test/test.o: test/test.c
-	$(CC) -I thirdparty -I src $(CFLAGS) -MP -MMD -c -o $@ $<
+	$(CC) -I thirdparty -I src $(CFLAGS) -MMD -c -o $@ $<
 
 
 start: bin/main
